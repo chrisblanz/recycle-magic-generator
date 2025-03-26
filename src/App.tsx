@@ -22,15 +22,33 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/inventory" element={<Inventory />} />
-            <Route path="/add-item" element={<AddItem />} />
-            <Route path="/items/:id" element={<ItemDetails />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AnimatePresence>
+        <Routes>
+          <Route path="/" element={
+            <AnimatePresence mode="wait">
+              <Index />
+            </AnimatePresence>
+          } />
+          <Route path="/inventory" element={
+            <AnimatePresence mode="wait">
+              <Inventory />
+            </AnimatePresence>
+          } />
+          <Route path="/add-item" element={
+            <AnimatePresence mode="wait">
+              <AddItem />
+            </AnimatePresence>
+          } />
+          <Route path="/items/:id" element={
+            <AnimatePresence mode="wait">
+              <ItemDetails />
+            </AnimatePresence>
+          } />
+          <Route path="*" element={
+            <AnimatePresence mode="wait">
+              <NotFound />
+            </AnimatePresence>
+          } />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
